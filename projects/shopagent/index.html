@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopAgent | Tanuja Gunjal</title>
+  <meta name="description" content="Architecture overview for ShopAgent by Tanuja Gunjal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body class="project-page-body">
+  <nav id="navbar">
+    <div class="nav-logo">&lt;tanuja/&gt;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+      <li><a href="../../index.html#projects" class="nav-link active">Projects</a></li>
+      <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="project-page-shell">
+    <section class="project-hero">
+      <div class="project-badge">AI AGENTS · E-COMMERCE · PRODUCTIVITY</div>
+      <h1>ShopAgent</h1>
+      <p>An AI-assisted shopping experience designed to help users discover products, summarize decisions, and streamline browser-like workflows.</p>
+      <div class="project-hero-actions">
+        <a class="btn-solid" href="../../index.html#projects">Back to Projects</a>
+        <a class="btn-outline" href="https://github.com/TanujaGunjal/ShopAgent-" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section class="project-overview">
+      <div class="project-card project-page-card">
+        <div class="project-header">
+          <h3 class="project-title">Overview</h3>
+        </div>
+        <p>ShopAgent focuses on using AI to support product discovery and decision-making in a shopping context. The architecture emphasizes user intent, structured search flow, and response orchestration.</p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric-box"><span>AI</span><strong>Agentic Flow</strong></div>
+        <div class="metric-box"><span>Frontend</span><strong>Modern Web App</strong></div>
+        <div class="metric-box"><span>Services</span><strong>API + Search</strong></div>
+        <div class="metric-box"><span>Pattern</span><strong>Assistive UX</strong></div>
+      </div>
+    </section>
+
+    <section class="project-diagram-section">
+      <div class="section-label-wrap">
+        <div class="section-pill-label pink-pill">SYSTEM ARCHITECTURE</div>
+      </div>
+      <div class="section-divider-line"></div>
+      <div class="mermaid-diagram-wrapper">
+        <pre class="mermaid">
+flowchart LR
+    Shopper[User] --> UI[Shopping Interface]
+    UI --> Agent[ShopAgent Orchestrator]
+    Agent --> Search[Product Discovery Layer]
+    Agent --> Intent[Intent / Context Extraction]
+    Agent --> LLM[LLM Reasoning Layer]
+    LLM --> Results[Recommendations + Summaries]
+    Search --> Catalog[Catalog / Product Data]
+    Results --> UI
+    UI --> Session[(User Session / History)]
+</pre>
+      </div>
+    </section>
+
+    <section class="project-details-grid">
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">Purpose</h3></div>
+        <ul>
+          <li>Translate user needs into actionable product recommendations.</li>
+          <li>Reduce friction in comparison and decision-making tasks.</li>
+          <li>Blend search, reasoning, and user context into a single assistive workflow.</li>
+        </ul>
+      </div>
+
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">Core Design Themes</h3></div>
+        <ul>
+          <li>Intent-aware product suggestions.</li>
+          <li>Short, useful AI summaries instead of raw data dumps.</li>
+          <li>Responsive, user-centric shopping experience.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+  </script>
+  <script src="../../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BuyEasy | Tanuja Gunjal</title>
+  <meta name="description" content="Architecture overview for BuyEasy by Tanuja Gunjal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body class="project-page-body">
+  <nav id="navbar">
+    <div class="nav-logo">&lt;tanuja/&gt;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+      <li><a href="../../index.html#projects" class="nav-link active">Projects</a></li>
+      <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="project-page-shell">
+    <section class="project-hero">
+      <div class="project-badge">MERN STACK · QUEUEING · DEVOPS</div>
+      <h1>BuyEasy</h1>
+      <p>A full-stack e-commerce platform designed for fast cart workflows, async order processing, and scalable deployment.</p>
+      <div class="project-hero-actions">
+        <a class="btn-solid" href="../../index.html#projects">Back to Projects</a>
+        <a class="btn-outline" href="https://github.com/TanujaGunjal/BuyEasy-DevOps" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section class="project-overview">
+      <div class="project-card project-page-card">
+        <div class="project-header">
+          <h3 class="project-title">Overview</h3>
+        </div>
+        <p>BuyEasy focuses on transactional commerce and the operational needs behind a smooth shopping experience. It combines a React-based front end, Node.js back end, Redis-based performance layer, and RabbitMQ-based async processing.</p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric-box"><span>Frontend</span><strong>React</strong></div>
+        <div class="metric-box"><span>Backend</span><strong>Node.js</strong></div>
+        <div class="metric-box"><span>Queue</span><strong>RabbitMQ</strong></div>
+        <div class="metric-box"><span>Cache</span><strong>Redis</strong></div>
+      </div>
+    </section>
+
+    <section class="project-diagram-section">
+      <div class="section-label-wrap">
+        <div class="section-pill-label pink-pill">SYSTEM ARCHITECTURE</div>
+      </div>
+      <div class="section-divider-line"></div>
+      <div class="mermaid-diagram-wrapper">
+        <pre class="mermaid">
+flowchart LR
+    User[Customer] --> Frontend[React Frontend]
+    Frontend --> API[Node.js API]
+    API --> Mongo[(MongoDB)]
+    API --> Redis[(Redis Cache)]
+    API --> Queue[RabbitMQ]
+    Queue --> Worker[Order Processing Worker]
+    Worker --> DB[(MongoDB)]
+    Worker --> Alerts[Price Alerts / Notifications]
+    API --> CI[CI / CD Pipeline]
+    CI --> AWS[AWS Deployment]
+</pre>
+      </div>
+    </section>
+
+    <section class="project-details-grid">
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">System Behaviors</h3></div>
+        <ul>
+          <li>Fast browsing and cart interactions powered by caching.</li>
+          <li>Order workflows handled asynchronously to reduce user-facing latency.</li>
+          <li>Price-drop notifications and background follow-up tasks built into the pipeline.</li>
+        </ul>
+      </div>
+
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">Operational Considerations</h3></div>
+        <ul>
+          <li>Separation of transactional logic from long-running tasks.</li>
+          <li>Deployment automation for smooth CI/CD delivery.</li>
+          <li>Scalable delivery patterns using queue-based processing and caching.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+  </script>
+  <script src="../../script.js"></script>
+</body>
+</html>

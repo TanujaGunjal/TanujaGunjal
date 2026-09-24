@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger System | Tanuja Gunjal</title>
+  <meta name="description" content="Architecture overview for Ledger System by Tanuja Gunjal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body class="project-page-body">
+  <nav id="navbar">
+    <div class="nav-logo">&lt;tanuja/&gt;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#home" class="nav-link">Home</a></li>
+      <li><a href="../../index.html#projects" class="nav-link active">Projects</a></li>
+      <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="project-page-shell">
+    <section class="project-hero">
+      <div class="project-badge">JAVA · SPRING BOOT · DISTRIBUTED SYSTEMS</div>
+      <h1>Ledger System</h1>
+      <p>A resilient financial system built to process transactions consistently under real-world load, failure, and retry scenarios.</p>
+      <div class="project-hero-actions">
+        <a class="btn-solid" href="../../index.html#projects">Back to Projects</a>
+        <a class="btn-outline" href="https://github.com/TanujaGunjal/ledger-system" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section class="project-overview">
+      <div class="project-card project-page-card">
+        <div class="project-header">
+          <h3 class="project-title">Overview</h3>
+        </div>
+        <p>Ledger System models a distributed financial workflow where transactions are recorded, validated, and propagated through decoupled services. The design emphasizes idempotency, event-driven processing, and operational resilience.</p>
+      </div>
+
+      <div class="project-metrics">
+        <div class="metric-box"><span>Core</span><strong>Spring Boot</strong></div>
+        <div class="metric-box"><span>Data</span><strong>PostgreSQL</strong></div>
+        <div class="metric-box"><span>Messaging</span><strong>Kafka</strong></div>
+        <div class="metric-box"><span>Flow</span><strong>Transactional Outbox</strong></div>
+      </div>
+    </section>
+
+    <section class="project-diagram-section">
+      <div class="section-label-wrap">
+        <div class="section-pill-label pink-pill">SYSTEM ARCHITECTURE</div>
+      </div>
+      <div class="section-divider-line"></div>
+      <div class="mermaid-diagram-wrapper">
+        <pre class="mermaid">
+flowchart LR
+    Client[Client / API Consumer] --> API[Spring Boot API]
+    API --> Tx[Transaction Service]
+    Tx --> DB[(PostgreSQL)]
+    Tx --> Outbox[Outbox Table]
+    Outbox --> Kafka[Kafka Event Stream]
+    Kafka --> Ledger[Ledger / Audit Consumer]
+    Kafka --> Notification[Notification / Reconciliation Consumer]
+    Ledger --> Audit[(Audit Store)]
+    Notification --> Alerts[Alerts / Monitoring]
+</pre>
+      </div>
+    </section>
+
+    <section class="project-details-grid">
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">Design Goals</h3></div>
+        <ul>
+          <li>Maintain consistency across transaction and ledger events.</li>
+          <li>Prevent duplicate processing through idempotent handlers.</li>
+          <li>Decouple business logic from downstream processing via events.</li>
+          <li>Improve reliability with durable messaging and retry-friendly consumers.</li>
+        </ul>
+      </div>
+
+      <div class="project-card project-page-card">
+        <div class="project-header"><h3 class="project-title">Architecture Notes</h3></div>
+        <ul>
+          <li>API layer accepts requests and validates business rules.</li>
+          <li>Transaction service writes to the database and emits outbox events.</li>
+          <li>Kafka brokers propagate change events for downstream processing.</li>
+          <li>Consumers focus on ledger updates, notifications, and monitoring tasks.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', securityLevel: 'loose' });
+  </script>
+  <script src="../../script.js"></script>
+</body>
+</html>

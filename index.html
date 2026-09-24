@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanuja Gunjal | Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Tanuja Gunjal – Computer Engineering Student at SPIT, Mumbai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">&lt;tanuja/&gt;</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link" id="nav-home">Home</a></li>
+      <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+      <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+      <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+      <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-bg-grid animated-bg"></div>
+    <div class="hero-content">
+      <div class="code-editor" id="hero-editor">
+        <div class="editor-titlebar">
+          <div class="editor-dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <span class="editor-filename">developer.tsx</span>
+        </div>
+        <div class="editor-body">
+          <div class="code-line"><span class="ln">01</span>&nbsp;<span class="c-tag">&lt; h1 &gt;</span> Hi, I'm <span
+              class="c-name">Tanuja Gunjal</span> <span class="c-tag">&lt; / h1 &gt;</span></div>
+          <div class="code-line"><span class="ln">02</span>&nbsp;<span class="c-tag">&lt; role &gt;</span> <span
+              class="c-pink" id="typing-role"></span><span class="cursor-blink"></span> <span class="c-tag">&lt; / role
+              &gt;</span></div>
+          <div class="code-line"><span class="ln">03</span>&nbsp;<span class="c-tag">&lt; p &gt;</span> I build scalable
+            software and turn ideas into real-world products. <span class="c-tag">&lt; / p &gt;</span></div>
+          <div class="code-line"><span class="ln">04</span>&nbsp;<span class="c-comment">// CS @ Sardar Patel Institute
+              of Technology</span></div>
+          <div class="code-line"><span class="ln">05</span>&nbsp;<span class="c-comment">// Building reliable software
+              since 2023</span></div>
+        </div>
+        <div class="editor-footer">
+          <div class="editor-socials">
+            <a href="https://github.com/TanujaGunjal" target="_blank" class="social-icon-btn" id="hero-github"
+              aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/tanuja-gunjal-a8a835290" target="_blank" class="social-icon-btn"
+              id="hero-linkedin" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://leetcode.com/u/tanujagunjal/" target="_blank" class="social-icon-btn" id="hero-leetcode"
+              aria-label="LeetCode">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </a>
+            <a href="mailto:tanuja.gunjal23@spit.ac.in" class="social-icon-btn" id="hero-email" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+          </div>
+          <div class="editor-cta">
+            <a href="#about" class="btn-solid" id="btn-about-me">ABOUT ME</a>
+            <a href="Resume_TanujaGunjal.pdf" download="Resume_TanujaGunjal.pdf" class="btn-outline" id="btn-resume">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              RESUME
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap" id="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <div class="hero-photo-inner">
+            <img src="pic.jpeg" alt="Tanuja Gunjal" class="hero-photo" id="hero-photo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section about-section">
+    <div class="section-label-wrap">
+      <div class="section-pill-label">ABOUT ME</div>
+    </div>
+    <div class="section-divider-line"></div>
+    <div class="about-grid">
+      <div class="about-bio-card" id="about-bio-card">
+
+        <h3 style="margin-bottom: 1.5rem; font-size: 2.2rem; line-height: 1.2;">Engineer. Builder. Problem Solver.</h3>
+        <p>I'm Tanuja, a Computer Engineering student at Sardar Patel Institute of Technology who enjoys turning complex
+          problems into reliable software.</p>
+        <p>I design and develop innovative web applications with a strong focus on delivering clean user experiences,
+          reliable backend systems, and solutions that scale thoughtfully.</p>
+        <p>My work blends product thinking with engineering execution — from crafting intuitive interfaces to building
+          robust APIs, data workflows, and deployment-ready systems that solve real-world problems.</p>
+        <p>I'm always exploring new ideas, improving my craft, and building products that are useful, efficient, and
+          thoughtfully designed.</p>
+      </div>
+      <div class="about-info-card" id="about-info-card">
+        <div class="info-item">
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">Mumbai, Maharashtra</span>
+          <div class="info-hr"></div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">EDUCATION</span>
+          <span class="info-value">B.Tech in Computer Engineering at S.P.I.T</span>
+          <div class="info-hr"></div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">SCHOOL</span>
+          <span class="info-value">Carmel Convent High School, Ahilyanagar<br>Army Public School, Pune</span>
+          <div class="info-hr"></div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">EMAIL</span>
+          <span class="info-value">tanuja.gunjal23@spit.ac.in</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">FUN FACT</span>
+          <span class="info-value">I love travelling and art!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="section projects-section">
+    <div class="projects-bg-stripes"></div>
+    <div class="section-label-wrap">
+      <div class="section-pill-label pink-pill">EXPERIENCE</div>
+    </div>
+    <div class="section-divider-line"></div>
+
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div class="project-card experience-card fade-in" style="margin-bottom: 24px;">
+        <div class="project-body">
+          <h3 class="project-title" style="font-size: 1.4rem;">Full Stack Developer Intern <span
+              style="font-size: 1rem; color: var(--text-muted); float: right;">Jan 2026 – Apr 2026</span></h3>
+          <h4 style="font-size: 1.1rem; color: var(--pink); margin-bottom: 16px;">B2World (BTOW Pvt. Ltd.)</h4>
+
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            At B2World, I built a Content Management System using React.js, Node.js, and MongoDB to centralize the
+            management of portfolios, blogs, and SEO metadata. I also developed a full-stack ATS Resume Builder
+            featuring resume scoring, keyword extraction, and automated PDF generation, alongside enhancing the
+            platform's chatroom system with direct messaging and admin monitoring capabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section about-section" style="background: var(--cream);">
+    <div class="section-label-wrap">
+      <div class="section-pill-label">MY PROJECTS</div>
+    </div>
+    <div class="section-divider-line"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-body" style="border-top: none;">
+          <div class="project-header">
+            <h3 class="project-title">Ledger System</h3>
+            <a href="https://github.com/TanujaGunjal/ledger-system" target="_blank" rel="noopener noreferrer"
+              class="project-github-btn" aria-label="Ledger System GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--hot-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <p style="font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--pink);">Jun 2026</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1;">A
+            distributed, fault-tolerant financial ledger built with Spring Boot. Features double-entry bookkeeping,
+            idempotent transaction posting, deadlock-free concurrent balance updates, and reliable event delivery via
+            Kafka using the Transactional Outbox Pattern with automated reconciliation.</p>
+          <div class="project-tags">
+            <span class="tag-pill">JAVA</span><span class="tag-pill">SPRING BOOT</span><span
+              class="tag-pill">POSTGRESQL</span><span class="tag-pill">KAFKA</span><span
+              class="tag-pill">DOCKER</span><span class="tag-pill">GITHUB ACTIONS</span>
+          </div>
+          <button class="architecture-btn" onclick="openCaseStudy('ledger')" id="btn-arch-ledger">VIEW ARCHITECTURE <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 class="project-title">HealthIntel</h3>
+            <a href="https://github.com/TanujaGunjal/HealthIntel" target="_blank" rel="noopener noreferrer"
+              class="project-github-btn" aria-label="HealthIntel GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--hot-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <p style="font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--pink);">Apr 2026</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1;">An
+            educational health-information platform with a 4-agent LangGraph workflow for symptom extraction, FAISS RAG
+            retrieval, safety validation, and Gemini/GPT synthesis. Includes EasyOCR prescription analysis and Google
+            Calendar OAuth for medication scheduling. Does not diagnose or prescribe.</p>
+          <div class="project-tags">
+            <span class="tag-pill">PYTHON</span><span class="tag-pill">LANGGRAPH</span><span
+              class="tag-pill">RAG / FAISS</span><span class="tag-pill">DJANGO REST</span><span
+              class="tag-pill">REACT</span><span class="tag-pill">POSTGRESQL</span><span
+              class="tag-pill">CELERY / REDIS</span><span class="tag-pill">DOCKER</span>
+          </div>
+          <button class="architecture-btn" onclick="openCaseStudy('healthintel')" id="btn-arch-healthintel">VIEW ARCHITECTURE <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 class="project-title">BuyEasy</h3>
+            <a href="https://github.com/TanujaGunjal/BuyEasy-DevOps" target="_blank" rel="noopener noreferrer"
+              class="project-github-btn" aria-label="BuyEasy GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--hot-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <p style="font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--pink);">Apr 2026</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1;">A
+            scalable MERN-stack e-commerce platform with an asynchronous order-processing pipeline via RabbitMQ,
+            Redis cache-aside for cart operations, Prometheus/Grafana observability, and a Jenkins CI/CD pipeline
+            deploying to AWS EC2 via Docker.</p>
+          <div class="project-tags">
+            <span class="tag-pill">MERN STACK</span><span class="tag-pill">RABBITMQ</span><span
+              class="tag-pill">REDIS</span><span class="tag-pill">DOCKER</span><span class="tag-pill">AWS
+              EC2</span><span class="tag-pill">JENKINS</span>
+          </div>
+          <button class="architecture-btn" onclick="openCaseStudy('buyeasy')" id="btn-arch-buyeasy">VIEW ARCHITECTURE <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 class="project-title">HireLens</h3>
+            <a href="https://github.com/TanujaGunjal/hirelens" target="_blank" rel="noopener noreferrer"
+              class="project-github-btn" aria-label="HireLens GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--hot-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <p style="font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--pink);">Jan 2026</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1;">An
+            AI-powered ATS that uses a hybrid scoring engine for semantic resume matching, skill-gap analysis, and
+            AI-driven rewrite suggestions. Features automated PDF parsing, Redis caching, Gemini AI integration,
+            and an interview question generator.</p>
+          <div class="project-tags">
+            <span class="tag-pill">REACT.JS</span><span class="tag-pill">NODE.JS</span><span
+              class="tag-pill">MONGODB</span><span class="tag-pill">REDIS</span><span class="tag-pill">GEMINI
+              API</span><span class="tag-pill">JWT</span>
+          </div>
+          <button class="architecture-btn" onclick="openCaseStudy('hirelens')" id="btn-arch-hirelens">VIEW ARCHITECTURE <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-num">05</div>
+        <div class="project-body">
+          <div class="project-header">
+            <h3 class="project-title">ShopAgent</h3>
+            <a href="https://github.com/TanujaGunjal/ShopAgent-" target="_blank" rel="noopener noreferrer"
+              class="project-github-btn" aria-label="ShopAgent GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--hot-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+          <p style="font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; color: var(--pink);">Jan 2026</p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1;">A
+            Gemini-powered agentic e-commerce assistant using governed function calling with deterministic business
+            rules, authorization gates, human-approval for refunds, RAG via MongoDB Atlas Vector Search, and idempotency
+            guards. Deployed on AWS ECS/Fargate.</p>
+          <div class="project-tags">
+            <span class="tag-pill">REACT.JS</span><span class="tag-pill">NODE.JS</span><span
+              class="tag-pill">FASTAPI</span><span class="tag-pill">MONGODB</span><span class="tag-pill">GEMINI
+              API</span><span class="tag-pill">RAG</span><span class="tag-pill">AWS ECS</span><span
+              class="tag-pill">STRIPE</span>
+          </div>
+          <button class="architecture-btn" onclick="openCaseStudy('shopagent')" id="btn-arch-shopagent">VIEW ARCHITECTURE <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section skills-section">
+    <div class="section-label-wrap">
+      <div class="section-pill-label pink-pill">TECHNICAL SKILLS</div>
+    </div>
+    <div class="section-divider-line"></div>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/java.svg" alt="Java" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">JAVA</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/c.svg" alt="C" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">C</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/python.svg" alt="Python" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">PYTHON</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/typescript.svg" alt="TypeScript" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">TypeScript</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/html5.svg" alt="HTML5" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">HTML5</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/css3.svg" alt="CSS3" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">CSS3</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/javascript.svg" alt="JavaScript" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">JavaScript</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/react.svg" alt="React.js" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">React.js</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box logo-dark">
+            <img src="assets/icons/express.svg" alt="Express.js" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Express.js</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/nodejs.svg" alt="Node.js" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Node.js</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/mongodb.svg" alt="MongoDB" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">MongoDB</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box logo-dark">
+            <img src="assets/icons/nextjs.svg" alt="Next.js" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Next.js</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/spring.svg" alt="Spring Boot" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Spring Boot</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">PostgreSQL</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/redis.svg" alt="Redis" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Redis</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box logo-dark">
+            <img src="assets/icons/kafka.svg" alt="Kafka" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Kafka</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/rabbitmq.svg" alt="RabbitMQ" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">RabbitMQ</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/powerbi.svg" alt="Power BI" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Power BI</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/tableau.svg" alt="Tableau" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">Tableau</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/docker.svg" alt="Docker" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">DOCKER</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/aws.svg" alt="AWS" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">AWS</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/git.svg" alt="Git" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">GIT</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box logo-dark">
+            <img src="assets/icons/github.svg" alt="GitHub" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">GITHUB</span>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-card">
+          <div class="skill-logo-box">
+            <img src="assets/icons/postman.svg" alt="Postman" class="skill-logo" loading="lazy" />
+          </div>
+        </div>
+        <span class="skill-label">POSTMAN</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+<section id="contact" class="section contact-section" style="background: var(--cream);">
+    <div class="hero-bg-grid animated-bg"></div>
+    <div class="section-label-wrap">
+      <div class="section-pill-label">CONTACT ME</div>
+    </div>
+    <div class="section-divider-line"></div>
+    <div class="contact-grid" id="contact-container">
+      <div class="contact-left">
+        <h2 class="contact-heading">LET'S CONNECT</h2>
+        <p class="contact-subtext">I'm always open to discussing new projects, creative ideas, or opportunities to be
+          part of your vision. Whether you have a question, want to collaborate, or just want to say hi, feel free to
+          reach out!</p>
+        <div class="contact-info-row">
+          <div class="contact-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="cinfo-label">EMAIL</div>
+            <div class="cinfo-val">tanuja.gunjal23@spit.ac.in</div>
+          </div>
+        </div>
+
+        <div class="contact-info-row">
+          <div class="contact-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <div class="cinfo-label">LOCATION</div>
+            <div class="cinfo-val">Mumbai, Maharashtra</div>
+          </div>
+        </div>
+        <p class="connect-label">CONNECT WITH ME</p>
+        <div class="connect-icons">
+          <a href="https://github.com/TanujaGunjal" target="_blank" class="connect-icon-btn" id="contact-github"
+            aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/tanuja-gunjal-a8a835290" target="_blank" class="connect-icon-btn"
+            id="contact-linkedin" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="https://leetcode.com/u/tanujagunjal/" target="_blank" class="connect-icon-btn" id="contact-leetcode"
+            aria-label="LeetCode">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h2 class="form-heading">DROP ME A MAIL!</h2>
+        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+          <input type="text" id="form-name" name="name" placeholder="Your Name" class="form-input" required />
+          <input type="email" id="form-email" name="email" placeholder="Your Email" class="form-input" required />
+          <input type="text" id="form-subject" name="subject" placeholder="Subject" class="form-input" required />
+          <textarea id="form-message" name="message" placeholder="Your Message" class="form-input form-textarea"
+            rows="5" required></textarea>
+          <button type="submit" class="btn-send" id="btn-send-message">
+            SEND MESSAGE
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+          <div id="form-success" class="form-success" style="display:none;">Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#home" class="scroll-top-btn" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white"
+          stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
+
+      <div class="footer-badge white-badge">
+        Developed with <span class="heart">❤️</span> by Tanuja
+      </div>
+
+      <div class="footer-badge pink-badge">
+        &copy; 2026 Tanuja Gunjal. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT CASE STUDY MODAL -->
+  <div id="case-study-backdrop" class="cs-backdrop" role="dialog" aria-modal="true" aria-labelledby="cs-modal-title" aria-hidden="true">
+    <div id="case-study-modal" class="cs-modal">
+      <!-- Modal Header -->
+      <div class="cs-header">
+        <div class="cs-header-meta">
+          <span class="cs-num" id="cs-num">01 / SYSTEM DESIGN</span>
+          <div class="cs-header-title-row">
+            <h2 class="cs-title" id="cs-modal-title">PROJECT</h2>
+            <div class="cs-header-badges">
+              <a class="cs-repo-btn" id="cs-repo-link" href="#" target="_blank" rel="noopener noreferrer">REPOSITORY ↗</a>
+              <span class="cs-verified-badge">SYSTEM VERIFIED</span>
+            </div>
+          </div>
+          <p class="cs-subtitle" id="cs-subtitle"></p>
+        </div>
+        <button class="cs-close" id="cs-close" aria-label="Close case study">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <!-- Modal Scrollable Body -->
+      <div class="cs-body" id="cs-body">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
