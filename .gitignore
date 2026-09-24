@@ -1,5 +1,26 @@
-.venv/
-*.log
+# Dependencies & Build Output
 node_modules/
+.vercel/
+dist/
+build/
+
+# Environments & Secrets
+.env
+.env*.local
+*.env
+*.pem
+*.key
+
+# Python Virtualenv
+.venv/
+__pycache__/
+
+# IDE & Editor
+.vscode/
+.idea/
+
+# OS & Logs
+*.log
 .DS_Store
 Thumbs.db
+

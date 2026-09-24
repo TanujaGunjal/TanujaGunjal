@@ -17,62 +17,113 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Scroll Spy ---
   const sections = document.querySelectorAll('section');
-  window.addEventListener('scroll', () => {
+  let scrollSpyFrame = 0;
+  let sectionOffsets = [];
+  let resizeFrame = 0;
+  const cacheSectionOffsets = () => {
+    sectionOffsets = Array.from(sections, section => ({
+      id: section.id,
+      top: section.offsetTop
+    }));
+  };
+  const updateScrollSpy = () => {
+    scrollSpyFrame = 0;
+    const scrollPosition = window.scrollY + 150;
     let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      if (pageYOffset >= sectionTop - 150) {
-        current = section.getAttribute('id');
+    sectionOffsets.forEach(section => {
+      if (scrollPosition >= section.top) {
+        current = section.id;
       }
     });
     navLinksItems.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
-  });
+  };
+  window.addEventListener('scroll', () => {
+    if (!scrollSpyFrame) {
+      scrollSpyFrame = requestAnimationFrame(updateScrollSpy);
+    }
+  }, { passive: true });
+  window.addEventListener('resize', () => {
+    if (!resizeFrame) {
+      resizeFrame = requestAnimationFrame(() => {
+        resizeFrame = 0;
+        cacheSectionOffsets();
+        updateScrollSpy();
+      });
+    }
+  }, { passive: true });
+  cacheSectionOffsets();
+  updateScrollSpy();
 
   // --- Intersection Observer for Staggered Fade-In ---
-  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+  // rootMargin fires 60px BEFORE the element scrolls into view so the
+  // animation is already running when the user's eyes arrive.
+  const observerOptions = { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0 };
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
+        const delay = parseInt(entry.target.dataset.delay || 0, 10);
+        if (delay === 0) {
           entry.target.classList.add('visible');
-        }, entry.target.dataset.delay || 0);
+        } else {
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+        }
         obs.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  const elementsToAnimate = [
+  // Helper: register a group of elements with a LOCAL stagger (delay resets
+  // to 0 for each new group so no section ever waits for a previous one).
+  function observeGroup(elements, stepMs = 60) {
+    elements.forEach((el, i) => {
+      if (!el) return;
+      el.classList.add('fade-in');
+      el.dataset.delay = i * stepMs;
+      observer.observe(el);
+    });
+  }
+
+  // Hero — immediate, no stagger needed
+  observeGroup([
     document.getElementById('hero-editor'),
     document.getElementById('hero-photo-wrap'),
+  ], 0);
+
+  // About
+  observeGroup([
     document.getElementById('about-bio-card'),
     document.getElementById('about-info-card'),
     ...document.querySelectorAll('.value-card'),
-    ...document.querySelectorAll('.project-card'),
-    ...document.querySelectorAll('.skill-card'),
+  ], 70);
+
+  // Projects — cap at 60ms so a 6-card grid never waits more than 300ms
+  observeGroup(Array.from(document.querySelectorAll('.project-card')), 60);
+
+  // Skills — 40ms step; even 20 cards finish in 760ms max
+  observeGroup(Array.from(document.querySelectorAll('.skill-card')), 40);
+
+  // Contact
+  observeGroup([
     document.querySelector('.contact-left'),
-    document.querySelector('.contact-right')
-  ];
+    document.querySelector('.contact-right'),
+  ], 70);
 
-  elementsToAnimate.forEach((el, i) => {
-    if (el) {
-      el.classList.add('fade-in');
-      el.dataset.delay = i * 60;
-      observer.observe(el);
+  // Clean up will-change after each transition to free compositor memory
+  document.addEventListener('transitionend', (e) => {
+    if (e.target.classList.contains('fade-in') && e.target.classList.contains('visible')) {
+      e.target.style.willChange = 'auto';
     }
-  });
+  }, { passive: true });
 
-  // --- Typing Animation in Hero ---
+  // --- Typing Animation in Hero (rAF-based, no setTimeout drift) ---
   const roles = [
-    'Backend Engineer',
-    'Distributed Systems Builder',
-    'AI Application Developer',
+    'Aspiring Software Engineer',
+    'Backend Developer',
     'Full Stack Developer',
+    'AI Application Builder',
     'Problem Solver'
   ];
   const typingEl = document.getElementById('typing-role');
@@ -80,28 +131,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let roleIndex = 0;
     let charIndex = 0;
     let deleting = false;
+    let lastTime = 0;
+    let delay = 90;
 
-    function typeLoop() {
+    function typeFrame(timestamp) {
+      if (timestamp - lastTime < delay) {
+        requestAnimationFrame(typeFrame);
+        return;
+      }
+      lastTime = timestamp;
+
       const current = roles[roleIndex];
       if (!deleting) {
-        typingEl.textContent = current.slice(0, charIndex + 1);
         charIndex++;
+        typingEl.textContent = current.slice(0, charIndex);
         if (charIndex === current.length) {
           deleting = true;
-          setTimeout(typeLoop, 1800);
-          return;
+          delay = 1800; // pause before deleting
+        } else {
+          delay = 90;
         }
       } else {
-        typingEl.textContent = current.slice(0, charIndex - 1);
         charIndex--;
+        typingEl.textContent = current.slice(0, charIndex);
         if (charIndex === 0) {
           deleting = false;
           roleIndex = (roleIndex + 1) % roles.length;
+          delay = 90;
+        } else {
+          delay = 55;
         }
       }
-      setTimeout(typeLoop, deleting ? 55 : 90);
+      requestAnimationFrame(typeFrame);
     }
-    typeLoop();
+    requestAnimationFrame(typeFrame);
   }
 
   // --- Animated Counters ---
@@ -114,11 +177,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const suffix = el.dataset.suffix || '';
         let count = 0;
         const step = Math.ceil(target / 50);
-        const interval = setInterval(() => {
+        const updateCounter = () => {
           count = Math.min(count + step, target);
           el.textContent = count + suffix;
-          if (count >= target) clearInterval(interval);
-        }, 28);
+          if (count < target) {
+            requestAnimationFrame(updateCounter);
+          }
+        };
+        requestAnimationFrame(updateCounter);
         countObserver.unobserve(el);
       }
     });
@@ -126,22 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   counters.forEach(c => countObserver.observe(c));
 
-  // --- Card Tilt Effect on Project Cards ---
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      const rotX = -(y / rect.height) * 5;
-      const rotY = (x / rect.width) * 5;
-      card.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-
-  // --- Modal: ESC key & backdrop click ---
+  // --- Modal: ESC key & backdrop click & keyboard focus trap ---
   const backdrop = document.getElementById('case-study-backdrop');
   const closeBtn = document.getElementById('cs-close');
 
@@ -151,37 +202,110 @@ document.addEventListener('DOMContentLoaded', () => {
     backdrop.addEventListener('click', (e) => {
       if (e.target === backdrop) closeCaseStudy();
     });
+
+    backdrop.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const focusable = backdrop.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable.length) return;
+        const firstEl = focusable[0];
+        const lastEl = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstEl || !backdrop.contains(document.activeElement)) {
+            e.preventDefault();
+            lastEl.focus();
+          }
+        } else {
+          if (document.activeElement === lastEl || !backdrop.contains(document.activeElement)) {
+            e.preventDefault();
+            firstEl.focus();
+          }
+        }
+      }
+    });
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeCaseStudy();
+    if (e.key === 'Escape') {
+      if (backdrop && backdrop.classList.contains('cs-open')) {
+        e.preventDefault();
+        closeCaseStudy();
+      }
+    }
   });
 
 });
 
-// --- Contact Form ---
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const form = document.getElementById('contact-form');
-  const successMessage = document.getElementById('form-success');
-  const btnSend = document.getElementById('btn-send-message');
-  if (form.checkValidity()) {
-    const originalBtnText = btnSend.innerHTML;
-    btnSend.innerHTML = 'SENDING...';
-    btnSend.disabled = true;
-    setTimeout(() => {
-      form.reset();
-      successMessage.style.display = 'block';
-      btnSend.innerHTML = originalBtnText;
-      btnSend.disabled = false;
-      setTimeout(() => { successMessage.style.display = 'none'; }, 5000);
-    }, 1500);
-  }
-}
-
 // =============================================================
 // PROJECT CASE STUDY DATA
 // =============================================================
+
+// --- Contact Form ---
+const contactForm = document.getElementById('contact-form');
+
+contactForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const submitButton = document.getElementById('btn-send-message');
+  const statusNotice = document.getElementById('form-status');
+
+  if (!(form instanceof HTMLFormElement) || !submitButton || !statusNotice || submitButton.disabled) return;
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'SENDING...';
+  statusNotice.className = 'form-notice';
+  statusNotice.textContent = '';
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/tanuja.gunjal23@spit.ac.in', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: form.elements.name.value.trim(),
+        email: form.elements.email.value.trim(),
+        subject: form.elements.subject.value.trim() || 'Portfolio Contact',
+        message: form.elements.message.value.trim(),
+        _subject: form.elements.subject.value.trim() || 'Portfolio Contact',
+        _replyto: form.elements.email.value.trim(),
+        _template: 'table'
+      })
+    });
+
+    if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
+
+    const result = await response.json();
+    if (result.success !== true && result.success !== 'true') {
+      throw new Error('Form service did not confirm successful delivery');
+    }
+
+    form.reset();
+    statusNotice.className = 'form-notice form-notice-success';
+    statusNotice.innerHTML = '<strong>✓ Message sent successfully!</strong><br>Thanks for reaching out — I\'ll get back to you soon.';
+  } catch (error) {
+    console.error('Contact form submission failed:', error);
+    statusNotice.className = 'form-notice form-notice-error';
+    statusNotice.textContent = 'Something went wrong. Please try again or email me directly.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = `SEND MESSAGE
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>`;
+  }
+});
 
 const projectCaseStudies = {
 
@@ -192,7 +316,7 @@ const projectCaseStudies = {
     subtitle: 'Distributed double-entry financial ledger with idempotent transaction posting and event-driven reconciliation.',
     repo: 'https://github.com/TanujaGunjal/ledger-system',
     overview: [
-      { label: 'TYPE', value: 'Backend / Distributed Systems' },
+      { label: 'TYPE', value: 'Independent / System Design' },
       { label: 'STACK', value: 'Java · Spring Boot · PostgreSQL · Kafka' },
       { label: 'DATE', value: 'Jun 2026' },
       { label: 'PATTERN', value: 'Transactional Outbox' }
@@ -255,7 +379,7 @@ const projectCaseStudies = {
     subtitle: 'Educational health-information platform. Does not diagnose conditions or replace qualified clinical advice.',
     repo: 'https://github.com/TanujaGunjal/HealthIntel',
     overview: [
-      { label: 'TYPE', value: 'Agentic AI / Full Stack' },
+      { label: 'TYPE', value: 'Independent / AI Health Platform' },
       { label: 'STACK', value: 'Python · Django · LangGraph · FAISS' },
       { label: 'DATE', value: 'Apr 2026' },
       { label: 'PATTERN', value: '4-Agent LangGraph Workflow' }
@@ -328,7 +452,7 @@ const projectCaseStudies = {
     subtitle: 'Scalable MERN e-commerce platform with async order processing, observability, and a full Jenkins CI/CD pipeline.',
     repo: 'https://github.com/TanujaGunjal/BuyEasy-DevOps',
     overview: [
-      { label: 'TYPE', value: 'Full Stack / DevOps' },
+      { label: 'TYPE', value: 'Independent / Full Stack System' },
       { label: 'STACK', value: 'MERN · RabbitMQ · Redis · Docker' },
       { label: 'DATE', value: 'Apr 2026' },
       { label: 'PATTERN', value: 'Async Queue + Cache-Aside' }
@@ -407,7 +531,7 @@ const projectCaseStudies = {
     subtitle: 'AI-powered ATS with hybrid semantic resume scoring, skill-gap analysis, and AI-driven rewrite suggestions.',
     repo: 'https://github.com/TanujaGunjal/hirelens',
     overview: [
-      { label: 'TYPE', value: 'AI / Full Stack' },
+      { label: 'TYPE', value: 'Independent / AI Platform' },
       { label: 'STACK', value: 'MERN · Gemini AI · Redis' },
       { label: 'DATE', value: 'Jan 2026' },
       { label: 'PATTERN', value: 'Hybrid Scoring Engine' }
@@ -472,7 +596,7 @@ const projectCaseStudies = {
     subtitle: 'Governed agentic AI assistant for e-commerce with deterministic business rules, human-approval gates, and RAG retrieval.',
     repo: 'https://github.com/TanujaGunjal/ShopAgent',
     overview: [
-      { label: 'TYPE', value: 'Agentic AI / Full Stack' },
+      { label: 'TYPE', value: 'Independent / Agentic AI System' },
       { label: 'STACK', value: 'Node.js · FastAPI · MongoDB Atlas · AWS ECS' },
       { label: 'DATE', value: 'Jan 2026' },
       { label: 'PATTERN', value: 'Governed Function Calling + Human-in-the-Loop' }
@@ -544,10 +668,30 @@ const projectCaseStudies = {
 // =============================================================
 
 let _savedScrollY = 0;
+let _modalTimer = 0;
+let _modalRenderToken = 0;
+let _mermaidPromise = null;
+let _triggerElement = null;
+
+function loadMermaid() {
+  if (window.mermaid) return Promise.resolve(window.mermaid);
+  if (_mermaidPromise) return _mermaidPromise;
+
+  _mermaidPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+    script.onload = () => resolve(window.mermaid);
+    script.onerror = () => reject(new Error('Unable to load Mermaid.'));
+    document.head.appendChild(script);
+  });
+  return _mermaidPromise;
+}
 
 function openCaseStudy(key) {
   const data = projectCaseStudies[key];
   if (!data) return;
+
+  _triggerElement = document.activeElement;
 
   // Populate header
   document.getElementById('cs-num').textContent = data.num;
@@ -570,10 +714,13 @@ function openCaseStudy(key) {
   document.body.classList.add('cs-locked');
 
   // Focus close button for accessibility
-  setTimeout(() => {
+  _modalRenderToken += 1;
+  const renderToken = _modalRenderToken;
+  clearTimeout(_modalTimer);
+  _modalTimer = setTimeout(() => {
     document.getElementById('cs-close').focus();
-    // Render mermaid diagrams inside modal
-    if (window.mermaid) {
+    loadMermaid().then((mermaid) => {
+      if (renderToken !== _modalRenderToken || !backdrop.classList.contains('cs-open')) return;
       mermaid.initialize({
         startOnLoad: false,
         theme: 'base',
@@ -604,15 +751,19 @@ function openCaseStudy(key) {
         if (graphDef) {
           mermaid.render('mermaid-svg-' + key + '-' + idx, graphDef)
             .then(({ svg }) => {
+              if (renderToken !== _modalRenderToken) return;
               el.innerHTML = svg;
             })
             .catch(err => {
+              if (renderToken !== _modalRenderToken) return;
               el.innerHTML = '<p style="color:#f22e8a;font-size:0.8rem;padding:8px;">Diagram render error. Check console.</p>';
               console.error('Mermaid error:', err);
             });
         }
       });
-    }
+    }).catch(err => {
+      if (renderToken === _modalRenderToken) console.error('Mermaid load error:', err);
+    });
   }, 50);
 }
 
@@ -620,12 +771,24 @@ function closeCaseStudy() {
   const backdrop = document.getElementById('case-study-backdrop');
   if (!backdrop.classList.contains('cs-open')) return;
 
+  clearTimeout(_modalTimer);
+  _modalRenderToken += 1;
+  if (backdrop.contains(document.activeElement)) {
+    document.activeElement.blur();
+  }
   backdrop.classList.remove('cs-open');
   backdrop.setAttribute('aria-hidden', 'true');
+  document.getElementById('cs-body').replaceChildren();
 
   // Restore scroll
   document.body.classList.remove('cs-locked');
   window.scrollTo(0, _savedScrollY);
+
+  // Return focus to the trigger button
+  if (_triggerElement && typeof _triggerElement.focus === 'function') {
+    _triggerElement.focus();
+    _triggerElement = null;
+  }
 }
 
 // =============================================================
@@ -684,7 +847,7 @@ function buildModalBody(data) {
       <div class="cs-highlights-grid">
         ${data.highlights.map(h => `
           <div class="cs-highlight-card">
-            <div class="cs-highlight-title">[ ${h.title} ]</div>
+            <div class="cs-highlight-title">${cleanArchitectureLabel(h.title)}</div>
             <div class="cs-highlight-desc">${h.desc}</div>
           </div>`).join('')}
       </div>
@@ -694,10 +857,14 @@ function buildModalBody(data) {
     <div class="cs-section">
       <div class="cs-section-label">TECH STACK</div>
       <div class="cs-stack-chips">
-        ${data.stack.map(s => `<span class="cs-stack-chip">[ ${s} ]</span>`).join('')}
+        ${data.stack.map(s => `<span class="cs-stack-chip">${cleanArchitectureLabel(s)}</span>`).join('')}
       </div>
     </div>
   `;
+}
+
+function cleanArchitectureLabel(label) {
+  return String(label).replace(/^\s*\[\s*|\s*\]\s*$/g, '').trim();
 }
 
 function escapeAttr(str) {

@@ -12,7 +12,6 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 
 <body>
@@ -86,7 +85,7 @@
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
             </a>
-            <a href="mailto:tanuja.gunjal23@spit.ac.in" class="social-icon-btn" id="hero-email" aria-label="Email">
+            <a href="mailto:tanuja.gunjal23@spit.ac.in" class="social-icon-btn" id="hero-email" aria-label="Email Tanuja Gunjal">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -111,7 +110,7 @@
       <div class="hero-photo-wrap" id="hero-photo-wrap">
         <div class="hero-photo-frame">
           <div class="hero-photo-inner">
-            <img src="pic.jpeg" alt="Tanuja Gunjal" class="hero-photo" id="hero-photo" />
+            <img src="pic.jpeg" alt="Tanuja Gunjal" class="hero-photo" id="hero-photo" width="400" height="400" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -123,7 +122,7 @@
   <!-- ABOUT SECTION -->
   <section id="about" class="section about-section">
     <div class="section-label-wrap">
-      <div class="section-pill-label">ABOUT ME</div>
+      <div class="section-pill-label pink-pill">ABOUT ME</div>
     </div>
     <div class="section-divider-line"></div>
     <div class="about-grid">
@@ -134,10 +133,10 @@
           problems into reliable software.</p>
         <p>I design and develop innovative web applications with a strong focus on delivering clean user experiences,
           reliable backend systems, and solutions that scale thoughtfully.</p>
-        <p>My work blends product thinking with engineering execution — from crafting intuitive interfaces to building
-          robust APIs, data workflows, and deployment-ready systems that solve real-world problems.</p>
-        <p>I'm always exploring new ideas, improving my craft, and building products that are useful, efficient, and
-          thoughtfully designed.</p>
+        <p>I enjoy working across the stack — from building intuitive interfaces to designing APIs, data workflows, and
+          backend systems.</p>
+        <p>My current interests include backend engineering, distributed systems, AI-powered applications, and building
+          reliable software.</p>
       </div>
       <div class="about-info-card" id="about-info-card">
         <div class="info-item">
@@ -157,7 +156,7 @@
         </div>
         <div class="info-item">
           <span class="info-label">EMAIL</span>
-          <span class="info-value">tanuja.gunjal23@spit.ac.in</span>
+          <span class="info-value"><a href="mailto:tanuja.gunjal23@spit.ac.in" style="color: inherit; text-decoration: none;">tanuja.gunjal23@spit.ac.in</a></span>
         </div>
         <div class="info-item">
           <span class="info-label">FUN FACT</span>
@@ -178,8 +177,11 @@
     <div style="max-width: 900px; margin: 0 auto;">
       <div class="project-card experience-card fade-in" style="margin-bottom: 24px;">
         <div class="project-body">
-          <h3 class="project-title" style="font-size: 1.4rem;">Full Stack Developer Intern <span
-              style="font-size: 1rem; color: var(--text-muted); float: right;">Jan 2026 – Apr 2026</span></h3>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+            <span class="project-role-badge">INDUSTRY INTERNSHIP</span>
+            <span style="font-size: 0.9rem; font-family: var(--font-mono); font-weight: 700; color: var(--text-muted);">Jan 2026 – Apr 2026</span>
+          </div>
+          <h3 class="project-title" style="font-size: 1.4rem;">Full Stack Developer Intern</h3>
           <h4 style="font-size: 1.1rem; color: var(--pink); margin-bottom: 16px;">B2World (BTOW Pvt. Ltd.)</h4>
 
           <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
@@ -196,13 +198,15 @@
   <!-- PROJECTS SECTION -->
   <section id="projects" class="section about-section" style="background: var(--cream);">
     <div class="section-label-wrap">
-      <div class="section-pill-label">MY PROJECTS</div>
+      <div class="section-pill-label pink-pill">FEATURED PROJECTS</div>
     </div>
     <div class="section-divider-line"></div>
+    <p style="text-align: center; font-size: 0.92rem; color: var(--text-muted); margin: -10px auto 30px; max-width: 680px;">
+      Personal &amp; independent software engineering projects focused on distributed systems, AI workflows, and system architecture.
+    </p>
     <div class="projects-grid">
 
       <div class="project-card">
-        <div class="project-num">01</div>
         <div class="project-body" style="border-top: none;">
           <div class="project-header">
             <h3 class="project-title">Ledger System</h3>
@@ -231,7 +235,6 @@
       </div>
 
       <div class="project-card">
-        <div class="project-num">02</div>
         <div class="project-body">
           <div class="project-header">
             <h3 class="project-title">HealthIntel</h3>
@@ -261,7 +264,6 @@
       </div>
 
       <div class="project-card">
-        <div class="project-num">03</div>
         <div class="project-body">
           <div class="project-header">
             <h3 class="project-title">BuyEasy</h3>
@@ -290,7 +292,6 @@
       </div>
 
       <div class="project-card">
-        <div class="project-num">04</div>
         <div class="project-body">
           <div class="project-header">
             <h3 class="project-title">HireLens</h3>
@@ -319,7 +320,6 @@
       </div>
 
       <div class="project-card fade-in">
-        <div class="project-num">05</div>
         <div class="project-body">
           <div class="project-header">
             <h3 class="project-title">ShopAgent</h3>
@@ -358,222 +358,296 @@
       <div class="section-pill-label pink-pill">TECHNICAL SKILLS</div>
     </div>
     <div class="section-divider-line"></div>
-    <div class="skills-grid">
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/java.svg" alt="Java" class="skill-logo" loading="lazy" />
+    <div class="skills-categories">
+
+      <!-- LANGUAGES -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">LANGUAGES</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/java.svg" alt="Java" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">JAVA</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/python.svg" alt="Python" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">PYTHON</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/c.svg" alt="C" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">C</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/javascript.svg" alt="JavaScript" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">JAVASCRIPT</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/typescript.svg" alt="TypeScript" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">TYPESCRIPT</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/sql.svg" alt="SQL" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">SQL</span>
           </div>
         </div>
-        <span class="skill-label">JAVA</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/c.svg" alt="C" class="skill-logo" loading="lazy" />
+      <!-- FRONTEND -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">FRONTEND</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/html5.svg" alt="HTML5" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">HTML5</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/css3.svg" alt="CSS3" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">CSS3</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/react.svg" alt="React.js" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">REACT.JS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/nextjs.svg" alt="Next.js" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">NEXT.JS</span>
           </div>
         </div>
-        <span class="skill-label">C</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/python.svg" alt="Python" class="skill-logo" loading="lazy" />
+      <!-- BACKEND -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">BACKEND</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/nodejs.svg" alt="Node.js" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">NODE.JS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box logo-dark">
+                <img src="assets/icons/express.svg" alt="Express.js" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">EXPRESS.JS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/spring.svg" alt="Spring Boot" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">SPRING BOOT</span>
           </div>
         </div>
-        <span class="skill-label">PYTHON</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/typescript.svg" alt="TypeScript" class="skill-logo" loading="lazy" />
+      <!-- DATABASES & CACHING -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">DATABASES &amp; CACHING</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">POSTGRESQL</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/mongodb.svg" alt="MongoDB" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">MONGODB</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/redis.svg" alt="Redis" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">REDIS</span>
           </div>
         </div>
-        <span class="skill-label">TypeScript</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/html5.svg" alt="HTML5" class="skill-logo" loading="lazy" />
+      <!-- MESSAGING -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">MESSAGING</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box logo-dark">
+                <img src="assets/icons/kafka.svg" alt="Kafka" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">KAFKA</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/rabbitmq.svg" alt="RabbitMQ" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">RABBITMQ</span>
           </div>
         </div>
-        <span class="skill-label">HTML5</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/css3.svg" alt="CSS3" class="skill-logo" loading="lazy" />
+      <!-- DATA & ANALYTICS -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">DATA &amp; ANALYTICS</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/powerbi.svg" alt="Power BI" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">POWER BI</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/tableau.svg" alt="Tableau" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">TABLEAU</span>
           </div>
         </div>
-        <span class="skill-label">CSS3</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/javascript.svg" alt="JavaScript" class="skill-logo" loading="lazy" />
+      <!-- CLOUD & DEVOPS -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">CLOUD &amp; DEVOPS</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/docker.svg" alt="Docker" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">DOCKER</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/aws.svg" alt="AWS" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">AWS</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/githubactions.svg" alt="GitHub Actions" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">GITHUB ACTIONS</span>
           </div>
         </div>
-        <span class="skill-label">JavaScript</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/react.svg" alt="React.js" class="skill-logo" loading="lazy" />
+      <!-- TOOLS -->
+      <div class="skills-category-group">
+        <div class="skills-category-header">
+          <div class="skills-category-title">TOOLS</div>
+          <div class="skills-category-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/git.svg" alt="Git" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">GIT</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box logo-dark">
+                <img src="assets/icons/github.svg" alt="GitHub" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">GITHUB</span>
+          </div>
+          <div class="skill-item">
+            <div class="skill-card">
+              <div class="skill-logo-box">
+                <img src="assets/icons/postman.svg" alt="Postman" class="skill-logo" loading="lazy" />
+              </div>
+            </div>
+            <span class="skill-label">POSTMAN</span>
           </div>
         </div>
-        <span class="skill-label">React.js</span>
       </div>
 
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box logo-dark">
-            <img src="assets/icons/express.svg" alt="Express.js" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Express.js</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/nodejs.svg" alt="Node.js" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Node.js</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/mongodb.svg" alt="MongoDB" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">MongoDB</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box logo-dark">
-            <img src="assets/icons/nextjs.svg" alt="Next.js" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Next.js</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/spring.svg" alt="Spring Boot" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Spring Boot</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/postgresql.svg" alt="PostgreSQL" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">PostgreSQL</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/redis.svg" alt="Redis" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Redis</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box logo-dark">
-            <img src="assets/icons/kafka.svg" alt="Kafka" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Kafka</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/rabbitmq.svg" alt="RabbitMQ" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">RabbitMQ</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/powerbi.svg" alt="Power BI" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Power BI</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/tableau.svg" alt="Tableau" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">Tableau</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/docker.svg" alt="Docker" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">DOCKER</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/aws.svg" alt="AWS" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">AWS</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/git.svg" alt="Git" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">GIT</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box logo-dark">
-            <img src="assets/icons/github.svg" alt="GitHub" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">GITHUB</span>
-      </div>
-
-      <div class="skill-item">
-        <div class="skill-card">
-          <div class="skill-logo-box">
-            <img src="assets/icons/postman.svg" alt="Postman" class="skill-logo" loading="lazy" />
-          </div>
-        </div>
-        <span class="skill-label">POSTMAN</span>
-      </div>
     </div>
   </section>
 
@@ -581,7 +655,7 @@
 <section id="contact" class="section contact-section" style="background: var(--cream);">
     <div class="hero-bg-grid animated-bg"></div>
     <div class="section-label-wrap">
-      <div class="section-pill-label">CONTACT ME</div>
+      <div class="section-pill-label pink-pill">CONTACT ME</div>
     </div>
     <div class="section-divider-line"></div>
     <div class="contact-grid" id="contact-container">
@@ -593,21 +667,21 @@
         <div class="contact-info-row">
           <div class="contact-icon-box">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
           </div>
           <div>
             <div class="cinfo-label">EMAIL</div>
-            <div class="cinfo-val">tanuja.gunjal23@spit.ac.in</div>
+            <div class="cinfo-val"><a href="mailto:tanuja.gunjal23@spit.ac.in" style="color: inherit; text-decoration: underline;" id="contact-email-link">tanuja.gunjal23@spit.ac.in</a></div>
           </div>
         </div>
 
         <div class="contact-info-row">
           <div class="contact-icon-box">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -619,28 +693,28 @@
         </div>
         <p class="connect-label">CONNECT WITH ME</p>
         <div class="connect-icons">
-          <a href="https://github.com/TanujaGunjal" target="_blank" class="connect-icon-btn" id="contact-github"
+          <a href="https://github.com/TanujaGunjal" target="_blank" rel="noopener noreferrer" class="connect-icon-btn" id="contact-github"
             aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
               </path>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/in/tanuja-gunjal-a8a835290" target="_blank" class="connect-icon-btn"
+          <a href="https://www.linkedin.com/in/tanuja-gunjal-a8a835290" target="_blank" rel="noopener noreferrer" class="connect-icon-btn"
             id="contact-linkedin" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
               <rect x="2" y="9" width="4" height="12"></rect>
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </a>
-          <a href="https://leetcode.com/u/tanujagunjal/" target="_blank" class="connect-icon-btn" id="contact-leetcode"
+          <a href="https://leetcode.com/u/tanujagunjal/" target="_blank" rel="noopener noreferrer" class="connect-icon-btn" id="contact-leetcode"
             aria-label="LeetCode">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
@@ -649,23 +723,24 @@
       </div>
       <div class="contact-right">
         <h2 class="form-heading">DROP ME A MAIL!</h2>
-        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
-          <input type="text" id="form-name" name="name" placeholder="Your Name" class="form-input" required />
-          <input type="email" id="form-email" name="email" placeholder="Your Email" class="form-input" required />
-          <input type="text" id="form-subject" name="subject" placeholder="Subject" class="form-input" required />
-          <textarea id="form-message" name="message" placeholder="Your Message" class="form-input form-textarea"
-            rows="5" required></textarea>
-          <button type="submit" class="btn-send" id="btn-send-message">
-            SEND MESSAGE
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-          </button>
-          <div id="form-success" class="form-success" style="display:none;">Message sent! I'll get back to you soon.
-          </div>
-        </form>
+        <div class="contact-actions">
+          <form class="contact-form" id="contact-form" novalidate>
+            <input type="text" id="form-name" name="name" placeholder="Your Name" class="form-input" required />
+            <input type="email" id="form-email" name="email" placeholder="Your Email" class="form-input" required />
+            <input type="text" id="form-subject" name="subject" placeholder="Subject" class="form-input" required />
+            <textarea id="form-message" name="message" placeholder="Your Message" class="form-input form-textarea"
+              rows="5" required></textarea>
+            <button type="submit" class="btn-send" id="btn-send-message">
+              SEND MESSAGE
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+            <div id="form-status" class="form-notice" role="status" aria-live="polite"></div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
