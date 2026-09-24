@@ -265,27 +265,25 @@ contactForm?.addEventListener('submit', async (event) => {
   statusNotice.textContent = '';
 
   try {
-    const response = await fetch('https://formsubmit.co/ajax/tanuja.gunjal23@spit.ac.in', {
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        access_key: '6730fc8f-55e5-458a-ab9c-90314c0ffd32',
         name: form.elements.name.value.trim(),
         email: form.elements.email.value.trim(),
-        subject: form.elements.subject.value.trim() || 'Portfolio Contact',
-        message: form.elements.message.value.trim(),
-        _subject: form.elements.subject.value.trim() || 'Portfolio Contact',
-        _replyto: form.elements.email.value.trim(),
-        _template: 'table'
+        subject: form.elements.subject.value.trim(),
+        message: form.elements.message.value.trim()
       })
     });
 
     if (!response.ok) throw new Error(`Form submission failed with status ${response.status}`);
 
     const result = await response.json();
-    if (result.success !== true && result.success !== 'true') {
+    if (result.success !== true) {
       throw new Error('Form service did not confirm successful delivery');
     }
 
